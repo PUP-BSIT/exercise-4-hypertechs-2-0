@@ -11,6 +11,7 @@ export class ParentComponent {
   musicList: Music[] = [];
   newMusic: Music = { id: 0, title: '', artist: '', genre: '', releaseYear: 0 };
   tempMusic: Music = { id: 0, title: '', artist: '', genre: '', releaseYear: 0 };
+  isEditing: boolean = false;
 
   addMusicItem() {
     // Assign a unique ID to the new music item (you may need to adjust this logic)
