@@ -37,11 +37,9 @@ export class ParentComponent {
     Object.assign(this.musicList[this.lastIndex], this.newMusic);
   }
 
-  deleteMusicItem(index: number) {
+  deleteMusicItem(musicItem: Music) {
+    const index = this.musicList.indexOf(musicItem);
     this.musicList.splice(index, 1);
-    if (index === this.lastIndex) {
-      this.lastIndex = this.musicList.length - 1;
-    }
   }
 }
 

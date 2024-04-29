@@ -1,40 +1,47 @@
-  <!-- Add Music form -->
-  <form (ngSubmit)="addMusicItem()">
-    <label>Title: <input type="text" [(ngModel)]="tempMusic.title" name="title"></label>
-    <label>Artist: <input type="text" [(ngModel)]="tempMusic.artist" name="artist"></label>
-    <label>Genre: <input type="text" [(ngModel)]="tempMusic.genre" name="genre"></label>
-    <label>Release Year: <input type="number" [(ngModel)]="tempMusic.releaseYear" name="releaseYear"></label>
-    <button type="submit">Add Music</button>
-  </form>
-  
-
+<!-- Add Music form -->
+<form (ngSubmit)="addMusicItem()">
+  <label
+    >Title: <input type="text" [(ngModel)]="tempMusic.title" name="title"
+  /></label>
+  <label
+    >Artist: <input type="text" [(ngModel)]="tempMusic.artist" name="artist"
+  /></label>
+  <label
+    >Genre: <input type="text" [(ngModel)]="tempMusic.genre" name="genre"
+  /></label>
+  <label
+    >Release Year:
+    <input type="number" [(ngModel)]="tempMusic.releaseYear" name="releaseYear"
+  /></label>
+  <button type="submit">Add Music</button>
+</form>
 
 <table>
-    <thead>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Genre</th>
+      <th>Release Year</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let musicItem of musicList">
       <tr>
-        <th>Title</th>
-        <th>Artist</th>
-        <th>Genre</th>
-        <th>Release Year</th>
-        <th>Action</th>
+        <td>{{ musicItem.title }}</td>
+        <td>{{ musicItem.artist }}</td>
+        <td>{{ musicItem.genre }}</td>
+        <td>{{ musicItem.releaseYear }}</td>
+        <td>
+          <button (click)="editMusicItem(musicItem)">Edit</button>
+          <button (click)="deleteMusicItem(musicItem)">Delete</button>
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      <ng-container *ngFor="let musicItem of musicList">
-        <tr>
-          <td>{{ musicItem.title }}</td>
-          <td>{{ musicItem.artist }}</td>
-          <td>{{ musicItem.genre }}</td>
-          <td>{{ musicItem.releaseYear }}</td>
-          <td>
-            <button (click)="editMusicItem(musicItem)">Edit</button>
-            <button (click)="deleteMusicItem(musicItem)">Delete</button>
-          </td>
-        </tr>
-      </ng-container>
-    </tbody>
-  </table>
-  
+    </ng-container>
+  </tbody>
+</table>
+
 <!-- edit form -->
 <form *ngIf="isEditing" (ngSubmit)="saveMusicItem()">
   <p>You are in editing mode</p>
