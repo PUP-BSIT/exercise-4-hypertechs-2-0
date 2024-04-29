@@ -36,6 +36,13 @@ export class ParentComponent {
     this.isEditing = false;
     Object.assign(this.musicList[this.lastIndex], this.newMusic);
   }
+
+  deleteMusicItem(index: number) {
+    this.musicList.splice(index, 1);
+    if (index === this.lastIndex) {
+      this.lastIndex = this.musicList.length - 1;
+    }
+  }
 }
 
 
