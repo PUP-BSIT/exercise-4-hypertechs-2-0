@@ -4,7 +4,7 @@
 
 ## Description
 
-For **Exercise 4** in Applications Development, we've built a _basic music playlist_ where users can add, view, edit, and delete songs, made through the use of Angular directives and parent-child components.
+For the **Exercise 4** in Applications Development, we've built a _basic music playlist_ where users can add, view, edit, and delete songs info, made through the use of Angular directives and parent-child components.
 
 You can check it out here: [hypertechs-exercise-four.netlify.app](https://hypertechs-exercise-four.netlify.app/).
 
