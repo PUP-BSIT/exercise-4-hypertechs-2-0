@@ -34,3 +34,22 @@
       </ng-container>
     </tbody>
   </table>
+  
+<!-- edit form -->
+<form *ngIf="isEditing" (ngSubmit)="saveMusicItem()">
+  <p>You are in editing mode</p>
+  <label
+    >Title: <input type="text" [(ngModel)]="newMusic.title" name="title"
+  /></label>
+  <label
+    >Artist: <input type="text" [(ngModel)]="newMusic.artist" name="artist"
+  /></label>
+  <label
+    >Genre: <input type="text" [(ngModel)]="newMusic.genre" name="genre"
+  /></label>
+  <label
+    >Release Year:
+    <input type="number" [(ngModel)]="newMusic.releaseYear" name="releaseYear"
+  /></label>
+  <button type="submit">Save</button>
+</form>
