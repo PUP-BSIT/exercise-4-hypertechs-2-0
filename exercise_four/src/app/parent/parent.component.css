@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  font-family: Poppins, sans-seif;
+}
+
+body {
+  background-color: #0d0d15;
+  color: #e9e8ea;
+}
+
+#music_playlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#music_playlist h1 {
+  margin-top: 0.5em;
+  font-size: 3.5em;
+  background: linear-gradient(to right, #b3aac5, #795fb0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0;
+}
+
+#music_playlist h3 {
+  margin-top: 0;
+  margin-bottom: 3em;
+  font-weight: normal;
+}
+
+/* Table styling */
+#music_playlist table {
+  margin-top: 2em;
+  border-collapse: collapse;
+  width: 80%;
+  border: 2px solid #483a64;
+}
+
+#music_playlist th,
+#music_playlist td {
+  padding: 8px;
+  text-align: center;
+  width: 20%;
+}
+
+#music_playlist th {
+  font-weight: 500;
+  margin-bottom: 1em;
+  background-color: #483a64;
+}
+
+ng-container button {
+  margin-right: 0.5em;
+}
+
+h4 {
+  font-weight: 600;
+  color: #795fb0;
+  text-align: center;
+  margin-top: 2em;
+}
+
+.edit-button {
+  margin-right: 0.5em;
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+}
+
+.custom-button {
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+}
+
+mat-form-field {
+  margin-right: 2em;
+  width: 15vw;
+}
+
+#mod_button {
+  height: 4em;
+}
+
+#add_form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#edit_form_cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

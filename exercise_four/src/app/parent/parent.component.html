@@ -1,62 +1,98 @@
 <!-- Add Music form -->
-<form (ngSubmit)="addMusicItem()">
-  <label
-    >Title: <input type="text" [(ngModel)]="tempMusic.title" name="title"
-  /></label>
-  <label
-    >Artist: <input type="text" [(ngModel)]="tempMusic.artist" name="artist"
-  /></label>
-  <label
-    >Genre: <input type="text" [(ngModel)]="tempMusic.genre" name="genre"
-  /></label>
-  <label
-    >Release Year:
-    <input type="number" [(ngModel)]="tempMusic.releaseYear" name="releaseYear"
-  /></label>
-  <button type="submit">Add Music</button>
-</form>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Artist</th>
-      <th>Genre</th>
-      <th>Release Year</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <ng-container *ngFor="let musicItem of musicList">
-      <tr>
-        <td>{{ musicItem.title }}</td>
-        <td>{{ musicItem.artist }}</td>
-        <td>{{ musicItem.genre }}</td>
-        <td>{{ musicItem.releaseYear }}</td>
-        <td>
-          <button (click)="editMusicItem(musicItem)">Edit</button>
-          <button (click)="deleteMusicItem(musicItem)">Delete</button>
-        </td>
-      </tr>
-    </ng-container>
-  </tbody>
-</table>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 
-<!-- edit form -->
-<form *ngIf="isEditing" (ngSubmit)="saveMusicItem()">
-  <p>You are in editing mode</p>
-  <label
-    >Title: <input type="text" [(ngModel)]="newMusic.title" name="title"
-  /></label>
-  <label
-    >Artist: <input type="text" [(ngModel)]="newMusic.artist" name="artist"
-  /></label>
-  <label
-    >Genre: <input type="text" [(ngModel)]="newMusic.genre" name="genre"
-  /></label>
-  <label
-    >Release Year:
-    <input type="number" [(ngModel)]="newMusic.releaseYear" name="releaseYear"
-  /></label>
-  <button type="submit">Save</button>
-</form>
+
+<body>
+  <div id="music_playlist">
+    <h1>Music Playlist using Angular</h1>
+    <h3>Create the perfect playlist: Add, Edit, and Delete Songs with ease</h3>
+
+    <form id="add_form" (ngSubmit)="addMusicItem()">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" [(ngModel)]="tempMusic.title" name="title">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Artist</mat-label>
+        <input matInput type="text" [(ngModel)]="tempMusic.artist" name="artist">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Genre</mat-label>
+        <input matInput type="text" [(ngModel)]="tempMusic.genre" name="genre">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Release Year</mat-label>
+        <input matInput type="number" [(ngModel)]="tempMusic.releaseYear" 
+        name="releaseYear" [value]="null">
+      </mat-form-field>
+
+      <button mat-raised-button class="custom-button" id="mod_button" 
+      type="submit">Add Music</button>
+    </form>
+
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Artist</th>
+          <th>Genre</th>
+          <th>Release Year</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let musicItem of musicList">
+          <tr>
+            <td>{{ musicItem.title }}</td>
+            <td>{{ musicItem.artist }}</td>
+            <td>{{ musicItem.genre }}</td>
+            <td>{{ musicItem.releaseYear }}</td>
+            <td>
+              <button mat-raised-button class="edit-button" 
+              (click)="editMusicItem(musicItem)">Edit</button>
+              <button mat-raised-button class="custom-button" 
+              (click)="deleteMusicItem(musicItem)">Delete</button>
+            </td>
+
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+
+    <!-- edit form -->
+    <form id="edit_form" *ngIf="isEditing" (ngSubmit)="saveMusicItem()">
+      <h4>You are in editing mode</h4>
+      <div id="edit_form_cont">
+        <mat-form-field appearance="fill">
+          <mat-label>Title</mat-label>
+          <input matInput type="text" [(ngModel)]="newMusic.title" 
+          name="title">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Artist</mat-label>
+          <input matInput type="text" [(ngModel)]="newMusic.artist" 
+          name="artist">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Genre</mat-label>
+          <input matInput type="text" [(ngModel)]="newMusic.genre" 
+          name="genre">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Release Year</mat-label>
+          <input matInput type="number" [(ngModel)]="newMusic.releaseYear" 
+          name="releaseYear" [value]="null">
+        </mat-form-field>
+
+        <button mat-raised-button class="custom-button" id="mod_button" 
+        type="submit">Save Changes</button>
+      </div>
+    </form>
+
+  </div>
+</body>
