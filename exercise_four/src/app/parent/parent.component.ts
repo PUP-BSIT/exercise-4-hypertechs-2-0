@@ -24,4 +24,11 @@ export class ParentComponent {
     this.tempMusic = { id: 0, title: '', artist: '', genre: '', releaseYear: 0 };
     this.newMusic = { id: 0, title: '', artist: '', genre: '', releaseYear: 0 };
   }
+
+  editMusicItem(musicItem: Music) {
+    this.isEditing = true;
+    Object.assign(this.newMusic, musicItem);
+  }
 }
+
+
